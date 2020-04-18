@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <AppHeader title="Welcome to Flag Search" />
-    <CountryPanel @countryChanged="countryChanged">
+    <CountryPanel>
       <CountrySearch />
       <CountryFlag :country="country" />
     </CountryPanel>
@@ -22,14 +22,9 @@ export default {
     }
   },
   provide() {
-    return {
-      'country': this.country
-    }
-  },
-  methods: {
-    countryChanged(value) {
-      console.log('event angekommen:' + value)
-      this.country = value
+    return { 
+      getCountry: () => this.country,
+      setCountry: country => this.country=country,
     }
   },
   components: {

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img id="flag-image" border="0" src="../assets/blank.gif" v-bind:class="flagCss" />
+    <img id="flag-image" border="0" src="../assets/blank.gif" v-bind:class="flag" />
   </div>
 </template>
 
@@ -8,10 +8,15 @@
 
 export default {
   name: "Flag",
-  inject: ['country'],
+  inject: ["getCountry", "setCountry"],
   computed: {
-    flagCss: function() {
-      return "flag flag-" + this.country
+    flag: {
+      get() {
+        return "flag flag-" + this.getCountry();
+      },
+      set(country) {
+        this.setCountry(country);
+      }
     }
   }
 };

@@ -1,4 +1,4 @@
-import { ref } from '@vue/composition-api'
+import { ref, inject } from '@vue/composition-api'
 import flagStore from '../stores/FlagStore'
 
 export function useSearch() {
@@ -9,10 +9,11 @@ export function useSearch() {
   return { options, onSearch }
 }
 
-export function useSelection(parent) {
+export function useSelection() {
   const selected = ref("")
+  const setCountry = inject("setCountry");
   const onSelection = (selection) => {
-    flagStore.countrySelected(selection, parent)
+    flagStore.countrySelected(selection, setCountry)
   }
   return { selected, onSelection }
 }

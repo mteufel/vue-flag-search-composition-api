@@ -1,3 +1,4 @@
+
 const createFlagStore = () => {
 
     const url = 'https://restcountries.eu/rest/v2'
@@ -15,9 +16,9 @@ const createFlagStore = () => {
             let json = await queryByName(search)
             options.value = json.map(e => e.name)
         },
-        countrySelected: async(selection, parent) => {
+        countrySelected: async(selection, setCountry) => {
             let json = await queryByName(selection)
-            parent.$emit('countryChanged', json.map(e => e.alpha2Code)[0].toLowerCase());
+            setCountry(json.map(e => e.alpha2Code)[0].toLowerCase())
         },
         
     }

@@ -17,10 +17,10 @@ import "vue-select/dist/vue-select.css";
 import { useSearch, useSelection } from "../use/useCountries"
 export default {
   name: "CountrySearch",
-  setup( props, { parent }) {
+  setup() {
 
     return { ...useSearch(), 
-             ...useSelection(parent) }
+             ...useSelection() }
 
   },
   components: {
