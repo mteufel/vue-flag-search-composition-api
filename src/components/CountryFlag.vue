@@ -5,15 +5,16 @@
 </template>
 
 <script>
-import { computed } from '@vue/composition-api'
+import { ref } from '@vue/composition-api'
+import flagStore from '../stores/FlagStore'
 
 export default {
   name: "Flag",
-  props: {
-    country: String
-  },
-  setup(props) {
-    const flagCss = computed( () => "flag flag-" + props.country)     
+  setup() {
+    const flagCss = ref("flag flag-" + flagStore.getSelectedCountry())
+
+    flagStore.subscribe( () => flagCss.value = "flag flag-" + flagStore.getSelectedCountry() );
+  
     return { flagCss }
   }
 };

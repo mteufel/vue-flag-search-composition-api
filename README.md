@@ -1,1 +1,3 @@
 # my-vue-flags
+
+In this branch the app communicates with a own store ...
