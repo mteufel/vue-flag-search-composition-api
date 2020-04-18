@@ -21,6 +21,11 @@ export default {
       country: 'gb'
     }
   },
+  provide() {
+    return {
+      'country': this.country
+    }
+  },
   methods: {
     countryChanged(value) {
       console.log('event angekommen:' + value)

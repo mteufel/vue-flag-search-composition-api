@@ -5,16 +5,14 @@
 </template>
 
 <script>
-import { computed } from '@vue/composition-api'
 
 export default {
   name: "Flag",
-  props: {
-    country: String
-  },
-  setup(props) {
-    const flagCss = computed( () => "flag flag-" + props.country)     
-    return { flagCss }
+  inject: ['country'],
+  computed: {
+    flagCss: function() {
+      return "flag flag-" + this.country
+    }
   }
 };
 </script>
