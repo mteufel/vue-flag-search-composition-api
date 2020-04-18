@@ -5,19 +5,12 @@
 </template>
 
 <script>
-
+import { inject, computed } from "@vue/composition-api"
 export default {
   name: "Flag",
-  inject: ["getCountry", "setCountry"],
-  computed: {
-    flag: {
-      get() {
-        return "flag flag-" + this.getCountry();
-      },
-      set(country) {
-        this.setCountry(country);
-      }
-    }
+  setup() {
+    const flag = computed( () => "flag flag-" + inject("country").value);
+    return { flag }
   }
 };
 </script>

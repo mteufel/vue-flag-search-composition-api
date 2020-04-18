@@ -16,9 +16,9 @@ const createFlagStore = () => {
             let json = await queryByName(search)
             options.value = json.map(e => e.name)
         },
-        countrySelected: async(selection, setCountry) => {
+        countrySelected: async(selection, country) => {
             let json = await queryByName(selection)
-            setCountry(json.map(e => e.alpha2Code)[0].toLowerCase())
+            country.value = json.map(e => e.alpha2Code)[0].toLowerCase()
         },
         
     }

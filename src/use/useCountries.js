@@ -10,10 +10,10 @@ export function useSearch() {
 }
 
 export function useSelection() {
-  const selected = ref("")
-  const setCountry = inject("setCountry");
+  const selected = ref('')
+  const country = inject("country")
   const onSelection = (selection) => {
-    flagStore.countrySelected(selection, setCountry)
+    flagStore.countrySelected(selection, country)
   }
   return { selected, onSelection }
 }

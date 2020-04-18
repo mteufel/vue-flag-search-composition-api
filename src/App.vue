@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import { ref, provide } from "@vue/composition-api"
 import AppHeader from "./components/AppHeader.vue";
 import CountrySearch from "./components/CountrySearch.vue"
 import CountryPanel from "./components/CountryPanel.vue"
@@ -16,16 +17,10 @@ import CountryFlag from "./components/CountryFlag.vue";
 
 export default {
   name: "App",
-  data() {
-    return {
-      country: 'gb'
-    }
-  },
-  provide() {
-    return { 
-      getCountry: () => this.country,
-      setCountry: country => this.country=country,
-    }
+  setup() {
+    const country = ref('ro')
+    provide("country", country)
+    return { country }
   },
   components: {
     AppHeader,
