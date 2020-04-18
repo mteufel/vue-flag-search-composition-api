@@ -18,7 +18,7 @@ export function useSelection(parent) {
   const onSelection = (selection) => {
       fetch("https://restcountries.eu/rest/v2/name/" + selection).then(res => {
         res.json().then(json =>  {
-          parent.$emit('countryChanged', json.map(e => e.alpha2Code)[0].toLowerCase());
+          parent.$parent.country = json.map(e => e.alpha2Code)[0].toLowerCase();
         })
       })
     }

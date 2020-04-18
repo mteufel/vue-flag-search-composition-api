@@ -8,4 +8,9 @@ Vue.use(VueCompositionApi);
 
 new Vue({
   render: h => h(App),
+  data() {
+    return {
+      initialCountry: 'ro'
+    }
+  }
 }).$mount('#app')

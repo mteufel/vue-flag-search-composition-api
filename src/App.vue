@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <AppHeader title="Welcome to Flag Search" />
-    <CountryPanel @countryChanged="countryChanged">
+    <CountryPanel>
       <CountrySearch />
       <CountryFlag :country="country" />
     </CountryPanel>
@@ -14,17 +14,12 @@ import CountrySearch from "./components/CountrySearch.vue"
 import CountryPanel from "./components/CountryPanel.vue"
 import CountryFlag from "./components/CountryFlag.vue";
 
+
 export default {
   name: "App",
   data() {
     return {
-      country: 'gb'
-    }
-  },
-  methods: {
-    countryChanged(value) {
-      console.log('event angekommen:' + value)
-      this.country = value
+      country: this.$root.initialCountry
     }
   },
   components: {
