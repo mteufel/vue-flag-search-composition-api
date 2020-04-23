@@ -7,7 +7,7 @@ const createFlagStore = () => {
         return await response.json()
     }
 
-    let selectedCountry = 'ro'
+    let selectedCountry = 'it'
     const subscribers = []
 
     return {
