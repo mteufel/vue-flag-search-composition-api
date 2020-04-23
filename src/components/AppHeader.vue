@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>{{ title }}</h1>
+    <h1>{{ title }} --> Initial Country was {{ this.$root.initialCountry }}</h1>
   </div>
 </template>
 
