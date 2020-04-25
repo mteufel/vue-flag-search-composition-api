@@ -3,7 +3,7 @@
     <AppHeader title="Welcome to Flag Search" />
     <CountryPanel @countryChanged="countryChanged">
       <CountrySearch />
-      <CountryFlag :country="country" />
+      <CountryFlag />
     </CountryPanel>
   </div>
 </template>
@@ -16,6 +16,8 @@ import CountryFlag from "./components/CountryFlag.vue";
 
 export default {
   name: "App",
+  setup() {
+  },
   data() {
     return {
       country: 'gb'
@@ -37,6 +39,10 @@ export default {
     CountryPanel,
     CountrySearch,
     CountryFlag
+  },
+  mounted() {
+    console.log("---- App.vue ----")
+    console.log(this)
   }
 };
 </script>

@@ -13,6 +13,10 @@ export default {
     flagCss: function() {
       return "flag flag-" + this.country
     }
+  },
+  mounted() { 
+    console.log("---- CountryFlag.vue ----")
+    console.log(this) 
   }
 };
 </script>
